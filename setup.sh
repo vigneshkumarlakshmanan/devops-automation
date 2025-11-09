@@ -7,13 +7,13 @@ if ! command -v docker &> /dev/null; then
     exit 1
 fi
 
-if ! command -v docker-compose &> /dev/null; then
+if ! command -v docker compose &> /dev/null; then
     echo "Docker Compose not found, please install Docker Compose!"
     exit 1
 fi
 
 echo "=== Building and starting containers ==="
-docker-compose up -d --build
+docker compose up -d --build
 
 echo "=== Waiting for services to be healthy ==="
 services=("jenkins" "redis" "sample-app" "nginx")
